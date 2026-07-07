@@ -2,61 +2,117 @@
 
 An interactive web-based Operating Systems lab for visualizing and learning core OS algorithms through real-time simulations and performance analysis.
 
-## Current Module
+---
 
-### CPU Scheduling
+# App Flow
 
+1. **Welcome Screen**
+   - Animated landing page with interactive module preview cards.
+
+2. **Module Selection**
+   - Choose an Operating Systems topic to explore.
+   - This screen is displayed only once during startup.
+
+3. **Module Pages**
+   - Each module provides an interactive simulation.
+   - A persistent navigation bar allows switching between modules and toggling the application theme at any time.
+
+---
+
+# Current Modules
+
+## CPU Scheduling
+
+### Algorithms
 - FCFS (First Come First Served)
 - SJF (Non-Preemptive)
-- SRTF (Preemptive)
+- SRTF (Shortest Remaining Time First)
 - Priority Scheduling
 - Round Robin (Adjustable Time Quantum)
 
-**Features**
+### Features
 - Interactive process table
 - Animated Gantt chart
 - Play, Pause, Step, and Reset controls
 - Adjustable simulation speed
 - Live Ready Queue visualization
-- Performance metrics (WT, TAT, RT)
-- Formula reference
+- Waiting, Turnaround, and Response Time metrics
+- Formula reference panel
 - Challenge Mode
-  
-### Disk Scheduling
 
+---
+
+## Disk Scheduling
+
+### Algorithms
 - FCFS (First Come First Served)
 - SSTF (Shortest Seek Time First)
 - SCAN
 - LOOK
 - C-SCAN
 
-**Features**
-- Interactive request input (head start position, disk size, track requests)
+### Features
+- Interactive request input
+- Adjustable disk size and initial head position
 - Direction control for SCAN and LOOK
-- Animated head movement chart with a moving head marker
+- Animated disk head movement
 - Play, Pause, Step, and Reset controls
 - Adjustable simulation speed
-- Seek time metrics (total and average) and full service order
+- Total and average seek time metrics
+- Complete request servicing order
 
-## App-wide Features
+---
 
-- Light & Dark themes
-- Animated WebGL background
-- Consistent playback architecture shared across modules
+## Memory Allocation
 
-## Tech Stack
+### Algorithms
+- First Fit
+- Best Fit
+- Worst Fit
+- Next Fit
+
+### Features
+- Interactive memory block and process allocation
+- Visual memory layout
+- Internal fragmentation analysis
+- Unallocated process detection
+- Total and average fragmentation metrics
+
+---
+
+# App-wide Features
+
+- Light and Dark themes
+- Interactive animated module cards
+- Persistent navigation bar
+- Export simulation results as PDF
+- Shared playback architecture across all modules
+
+---
+
+# Tech Stack
 
 - React
 - TypeScript
 - Vite
 - Tailwind CSS
 - Framer Motion
-- OGL (WebGL)
+- OGL 
+- GSAP
 
-## Installation
+---
+
+# Installation
+
+Install dependencies:
 
 ```bash
 npm install
+```
+
+Start the development server:
+
+```bash
 npm run dev
 ```
 
@@ -66,41 +122,66 @@ Build for production:
 npm run build
 ```
 
-## Project Structure
+---
+
+# Project Structure
 
 ```text
 src/
 ├── algorithms/
+│   ├── cpuScheduling.ts
+│   ├── diskScheduling.ts
+│   ├── memoryAllocation.ts
+│   └── timeline.ts
+│
 ├── components/
-├── types/
+│
+├── pages/
+│   ├── Welcome.tsx
+│   ├── ModuleSelect.tsx
+│   ├── CPUScheduling.tsx
+│   ├── DiskScheduling.tsx
+│   └── MemoryAllocation.tsx
+│
+├── utils/
+├── types.ts
 ├── App.tsx
 └── main.tsx
 ```
 
-## Future Development
+---
 
-- Memory Allocation Algorithms
-  - First Fit
-  - Best Fit
-  - Worst Fit
-  - Next Fit
+# Future Development
 
-- Paging & Page Replacement
+## Memory Management
+
+- Paging
+- Page Replacement
   - FIFO
   - LRU
   - Optimal
   - Clock
 
-- Deadlock Detection & Banker's Algorithm
+## Deadlocks
 
-- Process Synchronization
-  - Producer–Consumer
-  - Dining Philosophers
-  - Readers–Writers
+- Deadlock Detection
+- Banker's Algorithm
+
+## Process Synchronization
+
+- Producer–Consumer
+- Dining Philosophers
+- Readers–Writers
+
+## Planned Features
 
 - Interactive algorithm comparison
+- More educational visualizations
+- Additional animations and playback improvements
+- Performance analytics across algorithms
 
-- Export simulation reports
+---
 
-- More educational visualizations and animations
+# Goal
 
+VisualOS aims to make Operating Systems concepts easier to understand through interactive simulations, animations, and real-time performance analysis, providing an engaging platform for learning core OS concepts.
