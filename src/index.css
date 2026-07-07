@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: #f2b84b;
+  color: #0b0e14;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #232a35 #11151c;
+}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: #11151c; }
+::-webkit-scrollbar-thumb { background: #232a35; border-radius: 4px; }
+
+/* Anything with class "no-print" (nav bar, playback controls, theme
+   toggle, the export button itself) disappears when actually printing
+   or saving to PDF — only the inputs and results remain on the page. */
+@media print {
+  @page {
+    margin: 1.5cm;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: #ffffff !important;
+  }
+}

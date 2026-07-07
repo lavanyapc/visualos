@@ -6,6 +6,7 @@ import DiskChart from '../components/DiskChart'
 import DiskMetricsPanel from '../components/DiskMetricsPanel'
 import ExecutionControls from '../components/ExecutionControls'
 import SpeedControl from '../components/SpeedControl'
+import ExportPDFButton from '../components/ExportPDFButton'
 import { DiskAlgorithm, Direction, runDiskScheduler } from '../algorithms/diskScheduling'
 
 const initialRequests = [98, 183, 37, 122, 14, 124, 65, 67]
@@ -29,8 +30,6 @@ export default function DiskScheduling() {
 
   const totalSteps = result.seekSequence.length
 
-  // Any time the setup changes, jump back to the very start of playback —
-  // an old step index against a new schedule would point at the wrong track.
   useEffect(() => {
     setStepIndex(0)
     setIsPlaying(false)
@@ -112,7 +111,7 @@ export default function DiskScheduling() {
         />
       </section>
 
-      <section className="space-y-3">
+      <section className="no-print space-y-3">
         <h2 className="text-sm text-neutral-500 dark:text-neutral-400 uppercase tracking-wide mb-2">Execution</h2>
         <ExecutionControls
           isPlaying={isPlaying}
@@ -130,6 +129,10 @@ export default function DiskScheduling() {
         <h2 className="text-sm text-neutral-500 dark:text-neutral-400 uppercase tracking-wide mb-2">Metrics</h2>
         <DiskMetricsPanel result={result} />
       </section>
+
+      <div className="pt-4 flex justify-end">
+        <ExportPDFButton />
+      </div>
     </div>
   )
 }

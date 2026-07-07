@@ -9,6 +9,7 @@ import ChallengeMode from '../components/ChallengeMode'
 import ExecutionControls from '../components/ExecutionControls'
 import SpeedControl from '../components/SpeedControl'
 import ReadyQueueView from '../components/ReadyQueueView'
+import ExportPDFButton from '../components/ExportPDFButton'
 import { Process } from '../types'
 import { Algorithm, runScheduler } from '../algorithms/cpuScheduling'
 import { buildTimeline } from '../algorithms/timeline'
@@ -114,7 +115,7 @@ export default function CPUScheduling() {
     <div className="max-w-2xl mx-auto px-6 py-8 space-y-8">
       <div className="flex items-center justify-between flex-wrap gap-3">
         <h1 className="text-lg font-semibold">CPU Scheduling</h1>
-        <div className="flex items-center gap-3">
+        <div className="no-print flex items-center gap-3">
           {mode === 'challenge' && (
             <span className="text-sm text-neutral-600 dark:text-neutral-400">
               Score: <span className="text-amber-600 dark:text-amber-400 font-semibold">{score}</span>
@@ -165,7 +166,7 @@ export default function CPUScheduling() {
       </section>
 
       {!showResults && (
-        <section>
+        <section className="no-print">
           <h2 className="text-sm text-neutral-500 dark:text-neutral-400 uppercase tracking-wide mb-2">Challenge</h2>
           <ChallengeMode onSubmit={handleChallengeSubmit} />
         </section>
@@ -197,7 +198,7 @@ export default function CPUScheduling() {
             />
           </section>
 
-          <section className="space-y-3">
+          <section className="no-print space-y-3">
             <h2 className="text-sm text-neutral-500 dark:text-neutral-400 uppercase tracking-wide mb-2">Execution</h2>
             <ExecutionControls
               isPlaying={isPlaying}
@@ -225,6 +226,10 @@ export default function CPUScheduling() {
           </section>
         </>
       )}
+
+      <div className="pt-4 flex justify-end">
+        <ExportPDFButton />
+      </div>
     </div>
   )
 }
