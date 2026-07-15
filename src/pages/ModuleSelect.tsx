@@ -10,7 +10,7 @@ const MODULES: ModuleInfo[] = [
   { id: 'cpu', label: 'CPU Scheduling', available: true },
   { id: 'disk', label: 'Disk Scheduling', available: true },
   { id: 'memory', label: 'Memory Allocation', available: true },
-  { id: 'paging', label: 'Paging', available: false },
+  { id: 'paging', label: 'Paging', available: true },
   { id: 'pageReplacement', label: 'Page Replacement', available: false },
   { id: 'deadlocks', label: 'Deadlocks', available: false },
 ]

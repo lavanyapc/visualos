@@ -23,9 +23,26 @@ body {
 ::-webkit-scrollbar-track { background: #11151c; }
 ::-webkit-scrollbar-thumb { background: #232a35; border-radius: 4px; }
 
-/* Anything with class "no-print" (nav bar, playback controls, theme
-   toggle, the export button itself) disappears when actually printing
-   or saving to PDF — only the inputs and results remain on the page. */
+/* Slow, subtle drift for the Welcome screen's background glow orbs —
+   each on a different path/duration so they never sync up and look
+   mechanical; motion is barely-there, meant to be felt more than seen. */
+@keyframes float-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(40px, 30px) scale(1.08); }
+  66% { transform: translate(-20px, 50px) scale(0.95); }
+}
+
+@keyframes float-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-50px, -30px) scale(1.1); }
+}
+
+@keyframes float-c {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40% { transform: translate(30px, -40px) scale(1.05); }
+  70% { transform: translate(-40px, -20px) scale(0.9); }
+}
+
 @media print {
   @page {
     margin: 1.5cm;

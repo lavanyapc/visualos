@@ -29,8 +29,8 @@ const cardData = [
   {
     color: '#120F17',
     title: 'Paging',
-    description: 'Visualize how virtual addresses translate to physical memory through page tables.',
-    label: 'Coming soon'
+    description: 'Split a process into pages, map them to physical frames, and translate logical addresses step by step.',
+    label: 'Module'
   },
   {
     color: '#120F17',
