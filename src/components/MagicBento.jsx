@@ -35,13 +35,13 @@ const cardData = [
   {
     color: '#120F17',
     title: 'Page Replacement',
-    description: 'Compare FIFO, LRU, and Optimal as they decide which page to evict on a page fault.',
-    label: 'Coming soon'
+    description: 'Compare FIFO, LRU, Optimal, and Clock as they decide which page to evict on a page fault.',
+    label: 'Module'
   },
   {
     color: '#120F17',
-    title: 'Deadlocks',
-    description: 'Detect, avoid, and recover from deadlocks using resource allocation graphs.',
+    title: 'Process Synchronization',
+    description: 'Producer-Consumer, Dining Philosophers, and Readers-Writers using semaphores.',
     label: 'Coming soon'
   }
 ];

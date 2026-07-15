@@ -1,4 +1,4 @@
-export type ModuleId = 'cpu' | 'disk' | 'memory' | 'paging' | 'pageReplacement' | 'deadlocks'
+export type ModuleId = 'cpu' | 'disk' | 'memory' | 'paging' | 'pageReplacement' | 'sync'
 
 interface ModuleInfo {
   id: ModuleId
@@ -11,8 +11,8 @@ const MODULES: ModuleInfo[] = [
   { id: 'disk', label: 'Disk Scheduling', available: true },
   { id: 'memory', label: 'Memory Allocation', available: true },
   { id: 'paging', label: 'Paging', available: true },
-  { id: 'pageReplacement', label: 'Page Replacement', available: false },
-  { id: 'deadlocks', label: 'Deadlocks', available: false },
+  { id: 'pageReplacement', label: 'Page Replacement', available: true },
+  { id: 'sync', label: 'Process Synchronization', available: false },
 ]
 
 interface Props {

@@ -6,6 +6,8 @@ import ModuleSelect, { ModuleId } from './pages/ModuleSelect'
 import CPUScheduling from './pages/CPUScheduling'
 import DiskScheduling from './pages/DiskScheduling'
 import MemoryAllocation from './pages/MemoryAllocation'
+import Paging from './pages/Paging'
+import PageReplacement from './pages/PageReplacement'
 
 type Screen = 'welcome' | 'select' | ModuleId
 
@@ -13,9 +15,9 @@ const NAV_ITEMS: { id: ModuleId; label: string; available: boolean }[] = [
   { id: 'cpu', label: 'CPU Scheduling', available: true },
   { id: 'disk', label: 'Disk Scheduling', available: true },
   { id: 'memory', label: 'Memory Allocation', available: true },
-  { id: 'paging', label: 'Paging', available: false },
-  { id: 'pageReplacement', label: 'Page Replacement', available: false },
-  { id: 'deadlocks', label: 'Deadlocks', available: false },
+  { id: 'paging', label: 'Paging', available: true },
+  { id: 'pageReplacement', label: 'Page Replacement', available: true },
+  { id: 'sync', label: 'Process Synchronization', available: false },
 ]
 
 export default function App() {
@@ -84,6 +86,8 @@ export default function App() {
         {screen === 'cpu' && <CPUScheduling />}
         {screen === 'disk' && <DiskScheduling />}
         {screen === 'memory' && <MemoryAllocation />}
+        {screen === 'paging' && <Paging />}
+        {screen === 'pageReplacement' && <PageReplacement />}
       </main>
     </div>
   )
