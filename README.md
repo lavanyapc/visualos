@@ -1,42 +1,48 @@
 # VisualOS
 
-An interactive web-based Operating Systems lab for visualizing and learning core OS algorithms through real-time simulations and performance analysis.
+VisualOS is an interactive web-based Operating Systems laboratory designed to help students understand fundamental Operating Systems concepts through real-time simulations, animations, and performance analysis. The application enables users to experiment with different algorithms, visualize their execution, and compare their performance in an intuitive learning environment.
 
 ---
 
-# App Flow
+## Application Flow
 
 1. **Welcome Screen**
-   - Animated landing page with interactive module preview cards.
+   - Animated landing page introducing the platform.
+   - Interactive preview cards showcasing the available modules.
 
 2. **Module Selection**
-   - Choose an Operating Systems topic to explore.
-   - This screen is displayed only once during startup.
+   - Select an Operating Systems topic to explore.
+   - Displayed only during the initial launch of the application.
 
-3. **Module Pages**
-   - Each module provides an interactive simulation.
-   - A persistent navigation bar allows switching between modules and toggling the application theme at any time.
+3. **Simulation Modules**
+   - Each module provides an interactive simulation of a specific Operating Systems concept.
+   - A persistent navigation bar allows seamless navigation between modules and supports theme switching throughout the application.
 
 ---
 
-# Current Modules
+# Modules
 
 ## CPU Scheduling
 
-### Algorithms
-- FCFS (First Come First Served)
-- SJF (Non-Preemptive)
-- SRTF (Shortest Remaining Time First)
+### Supported Algorithms
+
+- First Come First Served (FCFS)
+- Shortest Job First (SJF - Non-Preemptive)
+- Shortest Remaining Time First (SRTF)
 - Priority Scheduling
-- Round Robin (Adjustable Time Quantum)
+- Round Robin (Configurable Time Quantum)
 
 ### Features
+
 - Interactive process table
-- Animated Gantt chart
+- Animated Gantt Chart
+- Ready Queue visualization
 - Play, Pause, Step, and Reset controls
 - Adjustable simulation speed
-- Live Ready Queue visualization
-- Waiting, Turnaround, and Response Time metrics
+- Automatic calculation of:
+  - Waiting Time
+  - Turnaround Time
+  - Response Time
 - Formula reference panel
 - Challenge Mode
 
@@ -44,65 +50,112 @@ An interactive web-based Operating Systems lab for visualizing and learning core
 
 ## Disk Scheduling
 
-### Algorithms
-- FCFS (First Come First Served)
-- SSTF (Shortest Seek Time First)
+### Supported Algorithms
+
+- First Come First Served (FCFS)
+- Shortest Seek Time First (SSTF)
 - SCAN
 - LOOK
 - C-SCAN
 
 ### Features
+
 - Interactive request input
-- Adjustable disk size and initial head position
+- Configurable disk size
+- Adjustable initial head position
 - Direction control for SCAN and LOOK
 - Animated disk head movement
 - Play, Pause, Step, and Reset controls
 - Adjustable simulation speed
-- Total and average seek time metrics
-- Complete request servicing order
+- Total seek distance calculation
+- Average seek distance calculation
+- Complete request servicing order visualization
 
 ---
 
 ## Memory Allocation
 
-### Algorithms
+### Supported Algorithms
+
 - First Fit
 - Best Fit
 - Worst Fit
 - Next Fit
 
 ### Features
-- Interactive memory block and process allocation
+
+- Interactive memory block configuration
+- Interactive process allocation
 - Visual memory layout
 - Internal fragmentation analysis
-- Unallocated process detection
-- Total and average fragmentation metrics
+- Detection of unallocated processes
+- Total fragmentation statistics
+- Average fragmentation statistics
 
 ---
 
-# App-wide Features
+## Paging
+
+### Features
+
+- Configurable process size
+- Configurable page size
+- Configurable physical memory size
+- Automatic page table generation
+- Unmapped page visualization when insufficient frames are available
+- Step-by-step logical-to-physical address translation
+- Formula display for page number and offset calculations
+- Physical memory visualization with highlighted frame
+- Page table visualization with highlighted page lookup
+- Page fault detection for unmapped pages
+
+---
+
+# Application Features
 
 - Light and Dark themes
-- Interactive animated module cards
+- Responsive user interface
+- Interactive module cards
 - Persistent navigation bar
-- Export simulation results as PDF
-- Shared playback architecture across all modules
+- PDF export for simulation results
+- Shared playback architecture across supported simulations
+- Smooth animations using Framer Motion and GSAP
 
 ---
 
-# Tech Stack
+# Technology Stack
+
+## Frontend
 
 - React
 - TypeScript
 - Vite
+
+## Styling
+
 - Tailwind CSS
+
+## Animation
+
 - Framer Motion
-- OGL 
 - GSAP
+- OGL
 
 ---
 
 # Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/lavanyapc/visualos.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd visualos
+```
 
 Install dependencies:
 
@@ -116,7 +169,7 @@ Start the development server:
 npm run dev
 ```
 
-Build for production:
+Build the project:
 
 ```bash
 npm run build
@@ -132,6 +185,7 @@ src/
 │   ├── cpuScheduling.ts
 │   ├── diskScheduling.ts
 │   ├── memoryAllocation.ts
+│   ├── paging.ts
 │   └── timeline.ts
 │
 ├── components/
@@ -141,7 +195,8 @@ src/
 │   ├── ModuleSelect.tsx
 │   ├── CPUScheduling.tsx
 │   ├── DiskScheduling.tsx
-│   └── MemoryAllocation.tsx
+│   ├── MemoryAllocation.tsx
+│   └── Paging.tsx
 │
 ├── utils/
 ├── types.ts
@@ -151,37 +206,30 @@ src/
 
 ---
 
-# Future Development
+# Planned Enhancements
 
-## Memory Management
+## Memory Management- Page replacement 
 
-- Paging
-- Page Replacement
-  - FIFO
-  - LRU
-  - Optimal
-  - Clock
+- FIFO Page Replacement
+- Least Recently Used (LRU)
+- Optimal Page Replacement
+- Clock Page Replacement
 
-## Deadlocks
+## Deadlock Management
 
 - Deadlock Detection
 - Banker's Algorithm
 
-## Process Synchronization
-
-- Producer–Consumer
-- Dining Philosophers
-- Readers–Writers
-
-## Planned Features
+## Future Improvements
 
 - Interactive algorithm comparison
-- More educational visualizations
-- Additional animations and playback improvements
-- Performance analytics across algorithms
+- Side-by-side performance analysis
+- Enhanced educational visualizations
+- Additional playback controls
+- Performance analytics dashboard
 
 ---
 
-# Goal
+# Project Goal
 
-VisualOS aims to make Operating Systems concepts easier to understand through interactive simulations, animations, and real-time performance analysis, providing an engaging platform for learning core OS concepts.
+VisualOS aims to bridge the gap between theory and practice by transforming Operating Systems concepts into interactive simulations. Through real-time execution, dynamic visualizations, and performance metrics, the platform provides an engaging environment for students to explore, experiment with, and better understand core Operating Systems algorithms.
