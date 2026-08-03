@@ -1,22 +1,35 @@
 # VisualOS
 
-VisualOS is an interactive web-based Operating Systems laboratory designed to help students understand fundamental Operating Systems concepts through real-time simulations, animations, and performance analysis. The application enables users to experiment with different algorithms, visualize their execution, and compare their performance in an intuitive learning environment.
+An interactive web-based Operating Systems laboratory for visualizing and learning core OS algorithms through real-time simulations, animations, and performance analysis.
+
+VisualOS transforms traditional Operating Systems learning into an interactive experience where users can experiment with algorithms, observe their execution step by step, compare their behavior, and analyze their performance—all through an intuitive and visually engaging interface.
+
+**Live Demo:** https://visualos-k6wb.onrender.com
+---
+
+## Overview
+
+Operating Systems concepts are often challenging to understand because they involve multiple processes, scheduling decisions, memory operations, and synchronization occurring simultaneously. While textbooks explain the theory, VisualOS allows users to **see** these algorithms in action.
+
+With interactive visualizations, configurable inputs, playback controls, and real-time metrics, VisualOS helps learners understand how different algorithms behave and how their performance varies under different scenarios.
 
 ---
 
-## Application Flow
+## App Flow
 
-1. **Welcome Screen**
-   - Animated landing page introducing the platform.
-   - Interactive preview cards showcasing the available modules.
+### 1. Welcome Screen
 
-2. **Module Selection**
-   - Select an Operating Systems topic to explore.
-   - Displayed only during the initial launch of the application.
+- Animated landing page with interactive module preview cards.
 
-3. **Simulation Modules**
-   - Each module provides an interactive simulation of a specific Operating Systems concept.
-   - A persistent navigation bar allows seamless navigation between modules and supports theme switching throughout the application.
+### 2. Module Selection
+
+- Choose an Operating Systems topic to explore.
+- This screen is displayed only once during startup.
+
+### 3. Module Pages
+
+- Each module provides an interactive simulation.
+- A persistent navigation bar allows switching between modules and toggling the application theme at any time.
 
 ---
 
@@ -24,25 +37,22 @@ VisualOS is an interactive web-based Operating Systems laboratory designed to he
 
 ## CPU Scheduling
 
-### Supported Algorithms
+### Algorithms
 
-- First Come First Served (FCFS)
-- Shortest Job First (SJF - Non-Preemptive)
-- Shortest Remaining Time First (SRTF)
+- FCFS (First Come First Served)
+- SJF (Non-Preemptive)
+- SRTF (Shortest Remaining Time First)
 - Priority Scheduling
-- Round Robin (Configurable Time Quantum)
+- Round Robin (Adjustable Time Quantum)
 
 ### Features
 
 - Interactive process table
-- Animated Gantt Chart
-- Ready Queue visualization
+- Animated Gantt chart
 - Play, Pause, Step, and Reset controls
 - Adjustable simulation speed
-- Automatic calculation of:
-  - Waiting Time
-  - Turnaround Time
-  - Response Time
+- Live Ready Queue visualization
+- Waiting, Turnaround, and Response Time metrics
 - Formula reference panel
 - Challenge Mode
 
@@ -50,10 +60,10 @@ VisualOS is an interactive web-based Operating Systems laboratory designed to he
 
 ## Disk Scheduling
 
-### Supported Algorithms
+### Algorithms
 
-- First Come First Served (FCFS)
-- Shortest Seek Time First (SSTF)
+- FCFS (First Come First Served)
+- SSTF (Shortest Seek Time First)
 - SCAN
 - LOOK
 - C-SCAN
@@ -61,21 +71,19 @@ VisualOS is an interactive web-based Operating Systems laboratory designed to he
 ### Features
 
 - Interactive request input
-- Configurable disk size
-- Adjustable initial head position
+- Adjustable disk size and initial head position
 - Direction control for SCAN and LOOK
 - Animated disk head movement
 - Play, Pause, Step, and Reset controls
 - Adjustable simulation speed
-- Total seek distance calculation
-- Average seek distance calculation
-- Complete request servicing order visualization
+- Total and average seek time metrics
+- Complete request servicing order
 
 ---
 
 ## Memory Allocation
 
-### Supported Algorithms
+### Algorithms
 
 - First Fit
 - Best Fit
@@ -84,13 +92,11 @@ VisualOS is an interactive web-based Operating Systems laboratory designed to he
 
 ### Features
 
-- Interactive memory block configuration
-- Interactive process allocation
+- Interactive memory block and process allocation
 - Visual memory layout
 - Internal fragmentation analysis
-- Detection of unallocated processes
-- Total fragmentation statistics
-- Average fragmentation statistics
+- Unallocated process detection
+- Total and average fragmentation metrics
 
 ---
 
@@ -98,64 +104,78 @@ VisualOS is an interactive web-based Operating Systems laboratory designed to he
 
 ### Features
 
-- Configurable process size
-- Configurable page size
-- Configurable physical memory size
-- Automatic page table generation
-- Unmapped page visualization when insufficient frames are available
-- Step-by-step logical-to-physical address translation
-- Formula display for page number and offset calculations
-- Physical memory visualization with highlighted frame
-- Page table visualization with highlighted page lookup
-- Page fault detection for unmapped pages
+- Configurable process size, page size, and physical memory size
+- Automatic page table generation, with unmapped pages shown when a process exceeds available frames
+- Logical-to-physical address translation, with the page number and offset formulas shown step by step
+- Physical memory frame grid, highlighting the exact frame a translated address resolves to
+- Page table view, highlighting the exact page a translated address looked up
+- Page fault detection for addresses referencing pages not currently loaded
 
 ---
 
-# Application Features
+## Page Replacement
+
+### Algorithms
+
+- FIFO (First In First Out)
+- LRU (Least Recently Used)
+- Optimal
+- Clock (Second-Chance)
+
+### Features
+
+- Editable reference string and configurable frame count
+- Step-by-step animated frame timeline
+- Reference string strip showing hits and faults at a glance
+- Eviction tracking, showing which page was replaced on each fault
+- Play, Pause, Step, and Reset controls
+- Adjustable simulation speed
+- Page fault count, hit count, and fault rate metrics
+
+---
+
+## Process Synchronization
+
+### Problems
+
+- Producer-Consumer
+- Dining Philosophers
+- Readers-Writers
+
+### Features
+
+- Tick-based, deterministic simulations for all three classic problems
+- **Producer-Consumer:** Configurable buffer size and relative producer/consumer speed; visualizes buffer fill state and blocking (buffer full / buffer empty) conditions
+- **Dining Philosophers:** Configurable philosopher count and think/eat durations; circular table visualization with live Thinking, Hungry, and Eating states, along with fork ownership using lowest-numbered-fork-first ordering to avoid deadlock
+- **Readers-Writers:** Editable request queue (read or write, with arrival time); FCFS-fair scheduling that prevents writer starvation, with live active readers, active writer, and waiting queue display
+- Shared Play, Pause, Step, and Reset controls
+- Adjustable simulation speed
+
+---
+
+# App-wide Features
 
 - Light and Dark themes
-- Responsive user interface
-- Interactive module cards
-- Persistent navigation bar
-- PDF export for simulation results
-- Shared playback architecture across supported simulations
-- Smooth animations using Framer Motion and GSAP
+- Interactive animated module cards on the Welcome screen
+- Persistent navigation bar for switching modules and themes
+- Export simulation results as PDF
+- Shared playback architecture across applicable modules
 
 ---
 
-# Technology Stack
-
-## Frontend
+# Tech Stack
 
 - React
 - TypeScript
 - Vite
-
-## Styling
-
 - Tailwind CSS
-
-## Animation
-
 - Framer Motion
-- GSAP
-- OGL
+- OGL (WebGL background)
+- GSAP (Welcome screen card interactions)
 
 ---
 
 # Installation
-
-Clone the repository:
-
-```bash
-git clone https://github.com/lavanyapc/visualos.git
-```
-
-Navigate to the project directory:
-
-```bash
-cd visualos
-```
 
 Install dependencies:
 
@@ -169,7 +189,7 @@ Start the development server:
 npm run dev
 ```
 
-Build the project:
+Build for production:
 
 ```bash
 npm run build
@@ -186,6 +206,10 @@ src/
 │   ├── diskScheduling.ts
 │   ├── memoryAllocation.ts
 │   ├── paging.ts
+│   ├── pageReplacement.ts
+│   ├── producerConsumer.ts
+│   ├── diningPhilosophers.ts
+│   ├── readersWriters.ts
 │   └── timeline.ts
 │
 ├── components/
@@ -196,7 +220,13 @@ src/
 │   ├── CPUScheduling.tsx
 │   ├── DiskScheduling.tsx
 │   ├── MemoryAllocation.tsx
-│   └── Paging.tsx
+│   ├── Paging.tsx
+│   ├── PageReplacement.tsx
+│   ├── ProcessSynchronization.tsx
+│   └── sync/
+│       ├── ProducerConsumerView.tsx
+│       ├── DiningPhilosophersView.tsx
+│       └── ReadersWritersView.tsx
 │
 ├── utils/
 ├── types.ts
@@ -206,30 +236,6 @@ src/
 
 ---
 
-# Planned Enhancements
+# Goal
 
-## Memory Management- Page replacement 
-
-- FIFO Page Replacement
-- Least Recently Used (LRU)
-- Optimal Page Replacement
-- Clock Page Replacement
-
-## Deadlock Management
-
-- Deadlock Detection
-- Banker's Algorithm
-
-## Future Improvements
-
-- Interactive algorithm comparison
-- Side-by-side performance analysis
-- Enhanced educational visualizations
-- Additional playback controls
-- Performance analytics dashboard
-
----
-
-# Project Goal
-
-VisualOS aims to bridge the gap between theory and practice by transforming Operating Systems concepts into interactive simulations. Through real-time execution, dynamic visualizations, and performance metrics, the platform provides an engaging environment for students to explore, experiment with, and better understand core Operating Systems algorithms.
+VisualOS aims to make Operating Systems concepts easier to understand through interactive simulations, animations, and real-time performance analysis. By turning six major areas of a typical Operating Systems course into interactive experiences, the platform enables learners to watch algorithms execute, step through each operation, experiment with different inputs, and gain a deeper understanding beyond traditional textbook learning.
