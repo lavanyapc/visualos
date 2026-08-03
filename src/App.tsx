@@ -8,6 +8,7 @@ import DiskScheduling from './pages/DiskScheduling'
 import MemoryAllocation from './pages/MemoryAllocation'
 import Paging from './pages/Paging'
 import PageReplacement from './pages/PageReplacement'
+import ProcessSynchronization from './pages/ProcessSynchronization'
 
 type Screen = 'welcome' | 'select' | ModuleId
 
@@ -17,7 +18,7 @@ const NAV_ITEMS: { id: ModuleId; label: string; available: boolean }[] = [
   { id: 'memory', label: 'Memory Allocation', available: true },
   { id: 'paging', label: 'Paging', available: true },
   { id: 'pageReplacement', label: 'Page Replacement', available: true },
-  { id: 'sync', label: 'Process Synchronization', available: false },
+  { id: 'sync', label: 'Process Synchronization', available: true },
 ]
 
 export default function App() {
@@ -88,6 +89,7 @@ export default function App() {
         {screen === 'memory' && <MemoryAllocation />}
         {screen === 'paging' && <Paging />}
         {screen === 'pageReplacement' && <PageReplacement />}
+        {screen === 'sync' && <ProcessSynchronization />}
       </main>
     </div>
   )

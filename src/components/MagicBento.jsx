@@ -42,7 +42,7 @@ const cardData = [
     color: '#120F17',
     title: 'Process Synchronization',
     description: 'Producer-Consumer, Dining Philosophers, and Readers-Writers using semaphores.',
-    label: 'Coming soon'
+    label: 'Module'
   }
 ];
 

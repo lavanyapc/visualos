@@ -12,7 +12,7 @@ const MODULES: ModuleInfo[] = [
   { id: 'memory', label: 'Memory Allocation', available: true },
   { id: 'paging', label: 'Paging', available: true },
   { id: 'pageReplacement', label: 'Page Replacement', available: true },
-  { id: 'sync', label: 'Process Synchronization', available: false },
+  { id: 'sync', label: 'Process Synchronization', available: true },
 ]
 
 interface Props {
