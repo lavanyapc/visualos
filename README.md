@@ -4,6 +4,7 @@ An interactive web-based Operating Systems laboratory for visualizing and learni
 
 VisualOS transforms traditional Operating Systems learning into an interactive experience where users can experiment with algorithms, observe their execution step by step, compare their behavior, and analyze their performance—all through an intuitive and visually engaging interface.
 
+**Live Demo:** https://visualos-k6wb.onrender.com
 ---
 
 ## Overview
